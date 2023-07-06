@@ -1,11 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Appearance, TextInput } from "react-native";
-import { ThemeContext } from "./utils/ThemeContext";
+import { StyleSheet, View, Appearance } from "react-native";
 import { useEffect, useState } from "react";
 import HomeScreen from "./screens/HomeScreen";
+import { Context } from "./utils/Context";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [weather, setWeather] = useState({})
   const [changedTheme, setChangedTheme] = useState(false);
 
   useEffect(() => {
@@ -28,12 +29,12 @@ export default function App() {
 
   const theme = isDarkMode ? darkTheme : lightTheme;
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <Context.Provider value={{ theme, toggleTheme, weather, setWeather}}>
       <View style={styles.container}>
         <StatusBar style="auto" />
         <HomeScreen />
       </View>
-    </ThemeContext.Provider>
+    </Context.Provider>
   );
 }
 

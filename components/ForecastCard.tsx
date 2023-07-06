@@ -1,29 +1,37 @@
-import { StyleSheet, Text, View } from "react-native";
+import { useContext } from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
+import { Context } from "../utils/Context";
+import SunnyIcon from "../assets/icons/SunnyIcon";
+interface Props {
+  data: any;
+}
+export default function ForcastCard({ data }: Props) {
 
-export default function ForcastCard() {
   return (
     <View
       style={{
         marginHorizontal: 16,
+        paddingTop:20,
         display: "flex",
-        justifyContent: "space-around",
+        // justifyContent: "space-around",
         flex: 1,
         marginVertical: 8,
       }}
     >
       <Text style={{ textAlign: "center", fontSize: 24, fontWeight: "bold" }}>
-        Kochi,
+        {data?.location?.name},
         <Text style={{ textAlign: "center", fontSize: 22, fontWeight: "600" }}>
-          India
+          {data?.location?.country}
         </Text>
       </Text>
-      <View style={{marginRight: 'auto',marginLeft:'auto' }}>
-        <View style={{ height: 128, width: 140, backgroundColor: 'red' }}>
-          <Text>Image</Text>
-        </View>
+      <View style={{ marginRight: "auto", marginLeft: "auto" }}>
+        <SunnyIcon style={{ marginHorizontal: "auto" }} />
       </View>
 
-      <View>
+      <View style={{
+        display:'flex',
+        justifyContent:'center'
+      }}>
         <Text
           style={{
             marginBottom: 4,
@@ -33,9 +41,9 @@ export default function ForcastCard() {
             marginLeft: 20,
           }}
         >
-          35
+          {data?.current?.temp_c}&#176;
         </Text>
-        <Text style={{ letterSpacing: 1 }}>Condition</Text>
+        <Text style={{ letterSpacing: 1 }}>{data?.current?.condition?.text}</Text>
       </View>
     </View>
   );
