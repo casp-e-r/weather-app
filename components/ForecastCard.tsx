@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { Context } from "../utils/Context";
-import SunnyIcon from "../assets/icons/SunnyIcon";
 interface Props {
   data: any;
 }
@@ -13,9 +12,12 @@ export default function ForcastCard({ data }: Props) {
         marginHorizontal: 16,
         paddingTop:20,
         display: "flex",
-        // justifyContent: "space-around",
         flex: 1,
         marginVertical: 8,
+        backgroundColor: "rgba(250, 250, 250, 0.63)",
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: "rgba(209, 213, 219, 0.3)"
       }}
     >
       <Text style={{ textAlign: "center", fontSize: 24, fontWeight: "bold" }}>
@@ -25,7 +27,7 @@ export default function ForcastCard({ data }: Props) {
         </Text>
       </Text>
       <View style={{ marginRight: "auto", marginLeft: "auto" }}>
-        <SunnyIcon style={{ marginHorizontal: "auto" }} />
+        <Image source={require('../assets/icons/clear.png')}  />
       </View>
 
       <View style={{
@@ -43,7 +45,7 @@ export default function ForcastCard({ data }: Props) {
         >
           {data?.current?.temp_c}&#176;
         </Text>
-        <Text style={{ letterSpacing: 1 }}>{data?.current?.condition?.text}</Text>
+        <Text style={{ letterSpacing: 1,marginHorizontal:'auto' }}>{data?.current?.condition?.text}</Text>
       </View>
     </View>
   );

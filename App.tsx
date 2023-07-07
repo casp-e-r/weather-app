@@ -41,7 +41,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -49,7 +48,7 @@ const styles = StyleSheet.create({
 
 const lightTheme = StyleSheet.create({
   container: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#AFD3E2",
   },
   text: {
     color: "#000000",
@@ -58,7 +57,7 @@ const lightTheme = StyleSheet.create({
 
 const darkTheme = StyleSheet.create({
   container: {
-    backgroundColor: "#000000",
+    backgroundColor: "#146C94",
   },
   text: {
     color: "#FFFFFF",
