@@ -21,9 +21,6 @@ export default function UpcomingForecast({ data }: Props) {
         contentContainerStyle={{ paddingHorizontal: 15 }}
         showsHorizontalScrollIndicator={false}
       >
-        {/* <Text>
-          {JSON.stringify(data?.forecast)}
-        </Text> */}
         {data?.forecast?.forecastday?.map((item: any, index: number) => {
           const date = new Date(item.date);
           const options: any = { weekday: "long" };

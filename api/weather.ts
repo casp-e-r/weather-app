@@ -1,6 +1,6 @@
 // @ts-ignore
 import axios from "axios";
-import {API_KEY, API_TOKEN} from "@env"
+import {API_KEY} from "@env"
 
 const forecastEndpoint = (params:any)=> `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${params.cityName}&days=${params.days}`;
 const locationsEndpoint = (params:any)=> `https://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${params.cityName}`;
@@ -14,11 +14,14 @@ const apiCall = async (endpoint:string)=>{
         const response = await axios.request(options);
         return response.data;
       }catch(error){
-        console.log('error: ',error);
+        console.log('error: ',error,options);
         return {};
     }
 }
 
+export const fetchCurrentLocationForecast = (latitude:any,longitude:any)=>{    
+    return apiCall(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${latitude},${longitude}&days=7`);
+}
 
 
 export const fetchWeatherForecast = (params:any)=>{

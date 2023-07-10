@@ -58,7 +58,8 @@ export default function Search() {
       <View style={{ display: "flex", flexDirection: "row", flex: 1 }}>
         {!showSearch ? (
           <KeyboardAvoidingView
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
+          enabled={true}
+            // behavior={Platform.OS === "ios" ? "padding" : "height"}
           >
             <TextInput
               onChangeText={handleTextDebounce}
@@ -103,7 +104,6 @@ export default function Search() {
                 onPress={() => handleLocation(loc)}
                 style={{padding:12,marginBottom:4}}
               >
-                {/* <MapPinIcon size="20" color="gray" /> */}
                 <Text >
                   {loc?.name}, {loc?.country}
                 </Text>
