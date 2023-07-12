@@ -7,13 +7,13 @@ export default function UpcomingForecast({ data }: Props) {
   return (
     <View
       style={{
-        marginTop: 80,
+        marginTop: 50,
         marginBottom: 8,
         paddingBottom: 8,
         paddingHorizontal: 4,
       }}
     >
-      <View>
+      <View style={{marginHorizontal:16}}>
         <Text>Daily forecast</Text>
       </View>
       <ScrollView
@@ -43,6 +43,7 @@ export default function UpcomingForecast({ data }: Props) {
             >
               <Image
                 source={weatherImages[item?.day?.condition?.text || "other"]}
+                resizeMode="contain"
                 style={{
                   width: 44,
                   height: 44,
